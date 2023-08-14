@@ -101,6 +101,7 @@ Open your web browser and visit `http://(yourlocalhost)` to access the applicati
 
 | Method | Endpoint                              | Description                          | Access |
 | ------ | ------------------------------------- | ------------------------------------ | ------ |
+| GET    | `/api`                                | first API generate                   | user   |
 | GET    | `api/video/`                          | get all video list video Thumbnail   | user   |
 | GET    | `api/product/:videoID`                | get product properties from videoID  | user   |
 | GET    | `api/product/search`                  | get product details search bar       | user   |
