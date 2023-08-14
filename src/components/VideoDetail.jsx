@@ -9,6 +9,7 @@ const VideoDetail = () => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState({ username: '', commentUser: '' })
   const [videos, setVideos] = useState([]);
+  const [selectedCommentId, setSelectedCommentId] = useState(null);
 
 
   // VideoDetail 
@@ -74,7 +75,7 @@ const VideoDetail = () => {
     fetchVideos()
   }, []);
 
-  //AddComment (I try to Websocket... :( ))
+  //AddComment (I try to SSE (Server Side Event)... :( ))
   const handleCommentChange = (e) => {
     setNewComment({ ...newComment, [e.target.name]: e.target.value })
   };
@@ -108,6 +109,25 @@ const VideoDetail = () => {
     }
   }
 
+  // Delete Comment 
+    const handleDeleteComment = async (commentId) => {
+      try {
+        const response = await fetch (`http://localhost:3000/api/comment/delete-comment/${videoID}`, {
+          method: 'DELETE',
+        });
+
+        if (response.ok) {
+          // Remove the deleted comment from the comments array
+          setComments((prevComments) => prevComments.filter((comment) => comment._id !== commentId));
+          setSelectedCommentId(null); // Clear the selected comment state
+        } 
+      }
+      catch (error) {
+        console.error('Error deleting comment', error)
+      }
+    }
+  
+
   return (
     <div className="flex flex-col lg:flex-row overflow-visible">
       {/* List Produk Section */}
@@ -115,7 +135,7 @@ const VideoDetail = () => {
         <h3 className='font-bold justify-center text-light-peach text-2xl -mb-8'>Product List</h3>
         <div className='p-2 mt-2 shadow-2xl'>
           {videos.map(video => (
-            <VideoThumbnail key={video._id.$oid} video={video} />
+            <VideoThumbnail key={video._id} video={video} />
           ))}
         </div>
       </div>
@@ -137,28 +157,33 @@ const VideoDetail = () => {
       )}
       {/* Comment Section */}
       <div className="flex-auto h-90 w-full md:w-1/6 p-4 my-4 mr-7 bg-deep-pine rounded-xl shadow-lg">
+        <h3 className='pt-2 font-bold text-light-peach text-lg md:text-2xl'> All Comment!</h3>
         {comments.length > 0 ? (
           comments.map((comment) => (
-            <Comment key={comment._id.$oid} comment={comment} />
+            <Comment 
+            key={comment._id} 
+            comment={comment}
+            onDeleteComment={() => handleDeleteComment(comment._id)}
+            selectedCommentId={selectedCommentId}
+             />
           ))
         ) : (
           <p className='font-bold text-light-peach'>No Comments available</p>
         )}
-        <form className="bg-light-peach rounded-lg mt-4 px-2 items-end" onSubmit={handleSubmitComment}>
-          <h3 className='pt-2 font-bold text-deep-pine text-lg md:text-xl'>Add your Comment Here!</h3>
+        <form className="bg-light-peach rounded-lg mt-4 px-2 " onSubmit={handleSubmitComment}>
           <input
             type='text'
             name='username'
             placeholder='put your name here...'
             value={newComment.username}
             onChange={handleCommentChange}
-            className='w-full p-2 mb-2 mt-3 rounded-md bg-mango placeholder:text-amber-600 text-orange' />
+            className='w-full p-2 mb-2 mt-3 rounded-md bg-mango placeholder:text-amber-600 text-deep-pine' />
           <textarea
             name="commentUser"
             placeholder="add your comment here..."
             value={newComment.commentUser}
             onChange={handleCommentChange}
-            className="w-full p-2 rounded-md bg-mango placeholder:text-amber-600 text-orange"
+            className="w-full p-2 rounded-md bg-mango placeholder:text-amber-600 text-deep-pine"
             rows="3" />
           <button type="submit" className="my-3 mx-2 bg-mango hover:bg-orange text-deep-pine active:bg-amber-900 p-2 rounded-lg font-semibold">
             Submit

@@ -3,6 +3,7 @@ import VideoThumbnail from './VideoThumbnail.jsx';
 
 const Home = () => {
   const [videos, setVideos] = useState([]);
+  
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -23,9 +24,9 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="p-4 grid grid-cols-5 gap-4 box-border">
+    <div className="p-4 grid grid-cols-5 gap-4 box-border" >
       {videos.map(video => (
-        <VideoThumbnail key={video._id.$oid} video={video} />
+        <VideoThumbnail key={video._id} video={video} />
       ))}
     </div>
   );
