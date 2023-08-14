@@ -80,7 +80,7 @@ For Backend Folder Structure you can access the Back-End Final Project Here
 1. Clone the project or this repository
 
 ```bash
-git clone `https://github.com/zidaneibrahimf7/backend-finalproject-gigih.git`
+git clone https://github.com/zidaneibrahimf7/backend-finalproject-gigih.git
 ```
 
 2. install dependencies
