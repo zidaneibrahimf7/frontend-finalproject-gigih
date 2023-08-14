@@ -1,15 +1,105 @@
-# React + Vite
+# Final Project Generasi Gigih (FrontEnd)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository was created as proof that the Final Project Generation Gigih 3.0 Full Stack Engineering by GoTo Impact Foundation has been completed
 
-Currently, two official plugins are available:
+## Back-End Final Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
--
+If you want to see Front-End Final Project Generasi Gigih you can access :
+`https://github.com/zidaneibrahimf7/backend-finalproject-gigih`
 
-# frontend-final-project-gigih
+# Project Development Schema
 
-- Additional
-  - Search Box
-    I tried to add search box, the feature has been showing up, but still cannot do the search some product name :(( I'm so sad. This is the additional
+![Architecture Final Project Schema](./public/Architecture_FinalProject_Gigih.drawio-2.png)
+
+## Tech Stack (Dependecies)
+
+`MERN Stack`
+
+- Code Editor : VS Code
+- Front End :
+  - React.js
+  - Vite
+  - React-Router
+  - React-Query
+  - Tailwind CSS
+- Back End :
+  - Express.js
+  - Server Side Event
+  - cors
+  - body-parser
+  - mongoose
+  - nodemon
+  - dotenv
+    Detail backend database and API Architecture you can access in Back-End Final Project :)
+
+## Features
+
+1. Multi-Page Navigation
+
+   - `Home Page`
+   - `Video Detail Pages`
+
+2. Home Page :
+
+   - Users can view various videos that are displayed based on database.
+   - users can view search box to get some product based on database.
+
+3. Video Detail Pages :
+
+   - Users get information in the form of product names, product images, and related product videos taken from YouTube along with price information.
+   - users can view comments and be able to write comments by writing the name or username and comments given on a product. In addition, users can delete comments that have been submitted on the page
+
+4. Comments :
+
+   - Users can make comments
+   - In using the comments feature, the user needs to enter a name/username and comment then click submit
+   - Users can delete comments by clicking "Delete"
+
+### List Bonus Feature
+
+- Real-Time Commenting with SSE (Server Side Event) :
+  - `User can write a comments and submit it. The system automatically added a comment from user`
+  - `User can delete comments by clicking "delete"`
+
+## Folder Structure
+
+- `public` : Public Asset
+- `src` : root folder for rendering some source code
+  - `Components` : root folder for rendering contents in webapps
+  - `Pages` : root folder for rendering pages routing each pages
+- `App.jsx` : main App
+- `index.css` : main style (using tailwind.css as UI Library)
+- `tailwind.config.js` : tailwindcss depedencies to generate style in web
+- `vite.config.js` : vite+react depedencies for library framework generated
+
+For Backend Folder Structure you can access the Back-End Final Project Here
+`https://github.com/zidaneibrahimf7/backend-finalproject-gigih`
+
+## How to Run! (Getting Started Run Locally)
+
+1. Clone the project or this repository
+
+```bash
+git clone `https://github.com/zidaneibrahimf7/backend-finalproject-gigih.git`
+```
+
+2. install dependencies
+
+```bash
+npm install
+```
+
+3. Run the project
+
+```bash
+npm start
+```
+
+Open your web browser and visit `http://(yourlocalhost)` to access the application
+
+## Additional
+
+- Search Box
+  I have tried adding the search bar feature. The bad news is it still can't bring up the product when using the search bar, I'm sorry. But the good news, the search box feature appears in the application. More details for the search box feature are in the `SearchBox.js`component. I have also added this search feature by integrating it with the API. the API endpoint inside the back-end is `/api/product/search/:videoID`
+- Server Side Event
+  Actually, I want to try using Websocket, but I find it very difficult. However, I tried using SSE. I don't know for sure if it's SSE, but by using that code, I don't need to refresh the page when a user submits a comment or deletes a comment. More details about the SSE concept that I have built can be seen in `VideoDetail.jsx` from `line 78 (submit comments) to line 128 (delete comments)`
