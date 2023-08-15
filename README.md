@@ -109,7 +109,11 @@ Open your web browser and visit `http://(yourlocalhost)` to access the applicati
 | POST   | `api/comment/submit-comment`          | post comment list to database        | user   |
 | DELETE | `api/comment/delete-comment/:videoID` | delete comment user list in database | user   |
 
-API list example you can see at [!API Example Request and Response](https://gist.github.com/zidaneibrahimf7/440cda5e17d8e41e67258d2f0bb676c4)
+API list example you can see at [API Example Request and Response](https://gist.github.com/zidaneibrahimf7/440cda5e17d8e41e67258d2f0bb676c4)
+
+## deployment
+
+you can access this project at [Deployment Project Tokopedia Clone FE](https://frontend-finalproject-gigih.vercel.app/)
 
 ## Additional
 
