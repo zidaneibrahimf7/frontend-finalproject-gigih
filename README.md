@@ -5,7 +5,7 @@ This repository was created as proof that the Final Project Generation Gigih 3.0
 ## Back-End Final Project
 
 If you want to see Front-End Final Project Generasi Gigih you can access :
-`https://github.com/zidaneibrahimf7/backend-finalproject-gigih`
+[BackEnd Tokopedia Play Clone API Final Project](https://github.com/zidaneibrahimf7/backend-finalproject-gigih)
 
 # Project Development Schema
 
