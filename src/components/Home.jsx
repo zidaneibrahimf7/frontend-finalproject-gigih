@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import VideoThumbnail from './VideoThumbnail.jsx';
-import { api } from '../config/index.js'
 
 const Home = () => {
   const [videos, setVideos] = useState([]);
