@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import VideoThumbnail from './VideoThumbnail.jsx';
+import { api } from '../config/index.js'
 
 const Home = () => {
   const [videos, setVideos] = useState([]);
@@ -8,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/videos')
+        const response = await fetch(api.BASE_URL + api.GET_VIDEOS_HOME)
         if (!response.ok) {
           throw new Error('Network response was not ok!')
         }

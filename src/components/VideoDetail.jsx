@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import Comment from './Comment.jsx';
 import VideoThumbnail from './VideoThumbnail.jsx';
+// import { api } from '../configs/index.js'
 
 const VideoDetail = () => {
   const { videoID } = useParams();
